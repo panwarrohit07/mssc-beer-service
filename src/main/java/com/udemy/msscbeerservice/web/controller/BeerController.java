@@ -3,6 +3,7 @@ package com.udemy.msscbeerservice.web.controller;
 import com.udemy.msscbeerservice.web.model.BeerDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -20,14 +21,14 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto){
+    public ResponseEntity saveNewBeer(@Validated @RequestBody BeerDto beerDto){
         //todo impl
         BeerDto beerDto1 = BeerDto.builder().id(UUID.randomUUID()).build();
         return new ResponseEntity(beerDto1, HttpStatus.CREATED);
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerId, @RequestBody BeerDto beerDto){
+    public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerId, @Validated @RequestBody BeerDto beerDto){
         //todo impl
         return new ResponseEntity(BeerDto.builder().id(UUID.randomUUID()).build(), HttpStatus.NO_CONTENT);
     }

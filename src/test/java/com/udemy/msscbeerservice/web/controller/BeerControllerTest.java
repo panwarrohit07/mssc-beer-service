@@ -1,6 +1,7 @@
 package com.udemy.msscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.udemy.msscbeerservice.bootstrap.BeerLoader;
 import com.udemy.msscbeerservice.web.model.BeerDto;
 import com.udemy.msscbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
@@ -63,7 +64,7 @@ class BeerControllerTest {
                 .beerName("My Beer")
                 .beerStyle(BeerStyleEnum.ALE)
                 .price(new BigDecimal("2.5"))
-                .upc(2342343L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .build();
     }
 

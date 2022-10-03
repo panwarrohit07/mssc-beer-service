@@ -1,24 +1,27 @@
 package com.udemy.msscbeerservice.web.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.udemy.msscbeerservice.web.model.BeerDto;
 import com.udemy.msscbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
+import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 @WebMvcTest(BeerController.class)
+@ExtendWith(RestDocumentationExtension.class)
+@AutoConfigureRestDocs
 class BeerControllerTest {
 
     @Autowired
@@ -63,4 +66,5 @@ class BeerControllerTest {
                 .upc(2342343L)
                 .build();
     }
+
 }
